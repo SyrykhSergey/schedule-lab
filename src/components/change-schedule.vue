@@ -3,9 +3,9 @@
 
     <div class="change-schedule">
         <h4 style="color: grey">Choose a schedule!</h4>
-        <a href="#"><div class="confirm-button">Groups</div></a>
-        <a href="#"><div class="confirm-button">Teachers</div></a>
-        <a href="#"><div class="confirm-button">Answers</div></a>
+        <a href="/groups"><div class="confirm-button">Groups</div></a>
+        <a href="/teacher"><div class="confirm-button">Teachers</div></a>
+        <a href="/classroom"><div class="confirm-button">Classrooms</div></a>
         
     </div>
 
@@ -51,6 +51,9 @@
     font-size: 20px
 
     }
+a{
+    text-decoration: none;
+}
 
     .confirm-button{
   width: 90%;

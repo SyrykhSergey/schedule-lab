@@ -1,9 +1,14 @@
 <template>
     <div class="app">
-        <h1>Hi is main</h1>
+        <head-menu />
+        <router-view />
     </div>
-  <router-view/>
+
 </template>
+
+<script setup>
+import HeadMenu from "@/components/head-menu.vue";
+</script>
 
 <style>
 .app{
@@ -14,5 +19,3 @@
     padding: 0;
 }
 </style>
-<script setup>
-</script>

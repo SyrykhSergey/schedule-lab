@@ -1,5 +1,5 @@
 <template>
-  <!--Здесь должен быть навбар-->
+  <!--Здесь должен быть навбар - не должен)-->
   <div class="main-container">
     <div class="card">
       <div class="schedule-content">

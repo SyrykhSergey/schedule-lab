@@ -4,17 +4,17 @@
     <div class="head-menu">
         <div id="logo">Schedule</div>
         <ul class="menu">
-                <li><a href="#">Main</a></li>
-                <li><a href="#">Groups</a></li>
-                <li><a href="#">Teachers</a></li>
-                <li><a href="#">Classrooms</a></li>
+                <li><a href="/">Main</a></li>
+                <li><a href="/groups">Groups</a></li>
+                <li><a href="/teacher">Teachers</a></li>
+                <li><a href="/classroom">Classrooms</a></li>
             <div v-if = "rank == 'Student'">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Control</a>
                 <div class="dropdown-content">
-                <a href="#">Users</a>
-                <a href="#">Groups</a>
-                <a href="#">Classrooms</a>
+                <a href="/users">Users</a>
+                <a href="/groups">Groups</a>
+                <a href="/classroom">Classrooms</a>
                 <a href="#">Lessons</a>
                 </div>
             </li>
