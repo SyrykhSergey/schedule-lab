@@ -24,3 +24,8 @@ UIcomponents.forEach(component => {
 
 
 app.use(store).use(router).use(vuetify).mount('#app')
+
+const token = localStorage.getItem('token');
+if (token) {
+  Vue.prototype.$http.defaults.headers.common['Authorization'] = token
+}
