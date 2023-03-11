@@ -2,14 +2,6 @@
     <div class="main">
         <div class="main-text">
             <h2>Classroom schedule</h2>
-            <h4>Education building:</h4>
-            <v-autocomplete
-                @update:modelValue="updateValue"
-                label=""
-                :items="['1', '2', '3', '4']"
-            ></v-autocomplete> <!-- https://vuetifyjs.com/en/components/autocompletes/#state-selector  а строчкой выше
-                                     нужно получение с сервера
-                                     тож самое ниже \/ -->
             <h4>Classroom:</h4>
             <v-autocomplete
                 @update:modelValue="updateValue"

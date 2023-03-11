@@ -4,6 +4,7 @@ import SelectGroupPage from "@/pages/select-group-page.vue";
 import SelectClassroomPage from "@/pages/select-classroom-page.vue";
 import SelectTeacherPage from "@/pages/select-teacher-page.vue";
 import usersPage from "@/pages/users-page.vue";
+import schedulePage from "@/pages/schedule-page.vue";
 
 const routes = [
   {
@@ -25,6 +26,10 @@ const routes = [
   {
     path: '/users',
     component: usersPage
+  },
+  {
+    path: '/raspinie',
+    component: schedulePage
   }
 ]
 
