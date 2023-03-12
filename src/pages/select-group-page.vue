@@ -6,9 +6,19 @@
 
 <script>
 import SelectGroupForm from "@/components/select-group-form.vue";
+import {mapActions} from "vuex";
 
 export default {
-    components: {SelectGroupForm}
+    components: {SelectGroupForm},
+    beforeMount() { //исполняет перед отрисовкой
+        this.fetchGroups()
+    },
+    methods: {
+        ...mapActions({
+            fetchGroups: 'fetchGroups'
+        }),
+
+    }
 
 }
 </script>
