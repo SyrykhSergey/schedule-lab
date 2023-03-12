@@ -3,10 +3,11 @@
         <div class="main-text">
             <h2>Classroom schedule</h2>
             <h4>Classroom:</h4>
+            <h5 id="error" class="no_err">Неверный номер аудитории</h5>
             <v-autocomplete
                 @update:modelValue="updateValue"
                 label=""
-                :items="['111', '112','113','211','212','213']"
+                :items="this.getClassroomsNumber"
             ></v-autocomplete>
         </div>
         <div class="btn">
@@ -19,24 +20,42 @@
 <script>
 
 import ConfirmButton from "@/components/UI/confirm-button.vue";
+import {mapGetters} from "vuex";
 
 export default {
     components: {ConfirmButton},
     data(){
         return{
-            group: '',
+            classroom: '',
+            classroomsNumber: this.getClassroomsNumber
         }
     },
+    computed: mapGetters(['getClassroomsNumber']),
     methods:{
         give_request() {// Переписать на отправку запроса к серверу
-            if(this.group !== ''){
-                console.log("give request")
+            let valid = false;
+            if(this.classroom !== ''){// Переписать на отправку запроса к серверу
+                for(let i = 0; i < this.getGroupNumberList.length; i++){
+                    if(this.classroom === this.getGroupNumberList[i]){
+                        valid = true;
+                        localStorage.classroom = this.classroom
+                        console.log("give request")
+                        window.location.href = '/';//сменить на нужную ссылку
+                    }
+                }
+                if(!valid){
+                    console.log("ne give request")
+                    document.getElementById('error').style = 'display: flex'
+                }
+
+
             } else {
                 console.log("ne give request")
+                document.getElementById('error').style = 'display: flex'
             }
         },
         updateValue(data) {
-            this.group = data;
+            this.classroom = data;
         }
     }
 }
@@ -68,6 +87,11 @@ h4{
     display: flex;
     justify-content: flex-end;
     margin-right: 50px;
+}
+.no_err{
+    display: none;
+    color: #d20200;
+    padding-bottom: 2px;
 }
 
 </style>
