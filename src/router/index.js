@@ -29,7 +29,7 @@ const routes = [
     component: usersPage
   },
   {
-    path: '/raspisanie',
+    path: '/schedule',
     component: schedulePage
   },
   {
