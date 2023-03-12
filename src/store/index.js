@@ -8,6 +8,9 @@ export default createStore({
 
     teachers: [],
     teachers_name_list:[],
+
+    classrooms: [],
+    classrooms_number_list: []
   },
 
 
@@ -17,6 +20,9 @@ export default createStore({
     },
     getTeachersName(state){
       return state.teachers_name_list
+    },
+    getClassroomsNumber(state){
+      return state.classrooms_number_list
     }
   },
 
@@ -43,6 +49,17 @@ export default createStore({
         b.push(c.userName)
       }
       state.teachers_name_list = b
+    },
+    setClassrooms(state, new_list){
+      state.classrooms = new_list;
+      let a = new_list.classrooms;
+      let b = [];
+      let c
+      for(let i = 0; i < a.length; i++){
+        c = a[i];
+        b.push(c.classroomName)
+      }
+      state.classrooms_number_list = b
     }
 
   },
@@ -78,7 +95,22 @@ export default createStore({
       /*const result = await fetch(url)
       const posts = await result.json()*/
       console.log("Fetched :", url)
-    }
+    },
+    async fetchClassrooms(ctx){
+      let url = 'http://d.wolf.16.fvds.ru/api/classrooms'
+      axios.get(url)
+          .then(response => {
+            ctx.commit('setClassrooms', response.data)
+
+
+          })
+          .catch(e => {
+            console.log(e)
+          })
+      /*const result = await fetch(url)
+      const posts = await result.json()*/
+      console.log("Fetched :", url)
+    },
   },
   modules: {
   }

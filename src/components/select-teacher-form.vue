@@ -3,7 +3,7 @@
         <div class="main-text">
             <h2>Teacher schedule</h2>
             <h4>Teacher name:</h4>
-            <h5 id="error" class="no_err">Неверный номер группы</h5>
+            <h5 id="error" class="no_err">Неверное имя преподавателя</h5>
             <v-autocomplete
                 @update:modelValue="updateValue"
                 label="name"
