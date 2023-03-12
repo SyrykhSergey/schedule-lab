@@ -32,10 +32,6 @@ export default {
         }
     },
     computed: mapGetters(['getGroupNumberList']),
-
-    updated() {
-
-    },
     methods:{
         give_request() {
             let valid = false;
