@@ -41,6 +41,7 @@ export default {
                         valid = true;
                         localStorage.teacher_name = this.teacher_name
                         console.log("give request")
+                        window.location.href = '/';//сменить на нужную ссылку
                     }
                 }
                 if(!valid){

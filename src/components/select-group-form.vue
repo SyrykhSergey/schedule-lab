@@ -41,6 +41,7 @@ export default {
                         valid = true;
                         localStorage.group_number = this.group
                         console.log("give request")
+                        window.location.href = '/';//сменить на нужную ссылку
                     }
                 }
                 if(!valid){

@@ -40,6 +40,7 @@ export default {
                         valid = true;
                         localStorage.classroom = this.classroom
                         console.log("give request")
+                        window.location.href = '/';//сменить на нужную ссылку
                     }
                 }
                 if(!valid){
