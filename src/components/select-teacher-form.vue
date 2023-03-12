@@ -47,8 +47,12 @@ export default {
 .main{
     background: white;
     width: 50vw;
-    height: 35vh;
+    height: max-content;
     margin-left: 25vw;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
+
 }
 .main-text{
     padding: 30px 0 0 50px;

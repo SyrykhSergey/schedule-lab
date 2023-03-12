@@ -5,6 +5,7 @@ import SelectClassroomPage from "@/pages/select-classroom-page.vue";
 import SelectTeacherPage from "@/pages/select-teacher-page.vue";
 import usersPage from "@/pages/users-page.vue";
 import schedulePage from "@/pages/schedule-page.vue";
+import profilePage from "@/pages/profile-page.vue";
 
 const routes = [
   {
@@ -28,8 +29,12 @@ const routes = [
     component: usersPage
   },
   {
-    path: '/raspinie',
+    path: '/raspisanie',
     component: schedulePage
+  },
+  {
+    path: '/profile',
+    component: profilePage
   }
 ]
 

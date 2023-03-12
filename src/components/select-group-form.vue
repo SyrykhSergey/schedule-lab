@@ -6,7 +6,7 @@
             <v-autocomplete
                 @update:modelValue="updateValue"
                 label="Group"
-                :items="['972101', '972102', '972001', '972002', '972201', '972202']"
+                :items= "this.getGroupNumberList"
             ></v-autocomplete> <!-- https://vuetifyjs.com/en/components/autocompletes/#state-selector  а строчкой выше
                                      а на 8-й строке нужно получение с сервера-->
         </div>
@@ -20,13 +20,20 @@
 <script>
 
 import ConfirmButton from "@/components/UI/confirm-button.vue";
+import {mapGetters} from "vuex";
 
 export default {
     components: {ConfirmButton},
     data(){
         return{
-            group: '',
+            groups: this.getGroupNumberList,
+            group: ''
         }
+    },
+    computed: mapGetters(['getGroupNumberList']),
+
+    updated() {
+
     },
     methods:{
         give_request() {
@@ -47,8 +54,11 @@ export default {
 .main{
     background: white;
     width: 50vw;
-    height: 35vh;
+    height: max-content;
     margin-left: 25vw;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
 }
 .main-text{
     padding: 30px 0 0 50px;
