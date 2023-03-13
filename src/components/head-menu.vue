@@ -8,16 +8,8 @@
                 <li><a href="#">Groups</a></li>
                 <li><a href="#">Teachers</a></li>
                 <li><a href="#">Classrooms</a></li>
-            <div v-if = "email > 1">
-            <li class="dropdown">
-                <a href="javascript:void(0)" class="dropbtn">Control</a>
-                <div class="dropdown-content">
-                <a href="#">Users</a>
-                <a href="#">Groups</a>
-                <a href="#">Classrooms</a>
-                <a href="#">Lessons</a>
-                </div>
-            </li>
+            <div v-if = "email.length > 2">
+
             <li style="float:right"><a href="#" @click="handleClick">Sign out</a></li>
             <li style="float:right"><div id="email">{{email}}</div></li>
           </div>

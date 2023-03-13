@@ -6,6 +6,8 @@ import SelectTeacherPage from "@/pages/select-teacher-page.vue";
 import usersPage from "@/pages/users-page.vue";
 import scheduleEditPage from "@/pages/schedule-edit-page";
 import profilePage from "@/pages/profile-page.vue";
+import authorizationPage from "@/pages/authorization-page.vue";
+import registraionPage from "@/pages/registraion-page.vue";
 
 
 const routes = [
@@ -36,6 +38,14 @@ const routes = [
   {
     path: '/profile',
     component: profilePage
+  },
+  {
+    path: '/authorization',
+    component: authorizationPage
+  },
+  {
+    path: '/registration',
+    component: registraionPage
   }
 ]
 

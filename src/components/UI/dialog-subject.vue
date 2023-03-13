@@ -63,7 +63,7 @@ export default {
         {
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': 'Bearer ' + token
+            'Authorization': 'Bearer ' + localStorage.getItem('token')
           },
           method: "GET",
         })
@@ -93,7 +93,7 @@ export default {
                     headers:
                         {
                           'Content-Type': 'application/json',
-                          'Authorization': 'Bearer ' + token
+                          'Authorization': 'Bearer ' + localStorage.getItem('token')
                         }
                   })
                   .then((response) => {
@@ -119,7 +119,7 @@ export default {
               {
                 headers: {
                   'Content-Type': 'application/json',
-                  'Authorization': 'Bearer ' + token
+                  'Authorization': 'Bearer ' + localStorage.getItem('token')
                 },
                 method: "GET",
               })
@@ -140,7 +140,7 @@ export default {
                           headers:
                               {
                                 'Content-Type': 'application/json',
-                                'Authorization': 'Bearer ' + token
+                                'Authorization': 'Bearer ' + localStorage.getItem('token')
                               }
                         })
                         .then((response) => {
@@ -168,7 +168,7 @@ export default {
                       headers:
                           {
                             'Content-Type': 'application/json',
-                            'Authorization': 'Bearer ' + token
+                            'Authorization': 'Bearer ' + localStorage.getItem('token')
                           }
                     })
                     .then((response) => {
@@ -194,7 +194,7 @@ export default {
                             headers:
                                 {
                                   'Content-Type': 'application/json',
-                                  'Authorization': 'Bearer ' + token
+                                  'Authorization': 'Bearer ' + localStorage.getItem('token')
                                 }
                           })
                           .then((response) => {

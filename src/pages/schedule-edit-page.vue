@@ -214,7 +214,7 @@ export default {
           {
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + this.token
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             method: "DELETE",
           })
@@ -370,7 +370,7 @@ export default {
           {
             headers: {
               'Content-Type': 'application/json',
-              'Authorization': 'Bearer ' + this.token
+              'Authorization': 'Bearer ' + localStorage.getItem('token')
             },
             method: "DELETE"
           })
@@ -399,7 +399,7 @@ export default {
             {
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.token
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
               },
               method: "PUT",
               body: JSON.stringify({
@@ -452,7 +452,7 @@ export default {
             {
               headers: {
                 'Content-Type': 'application/json',
-                'Authorization': 'Bearer ' + this.token
+                'Authorization': 'Bearer ' + localStorage.getItem('token')
               },
               method: "POST",
               body: JSON.stringify({

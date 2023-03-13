@@ -8,10 +8,10 @@
 
 
 <script>
-import PostFormVue from './components/PostForm.vue'
-import PostListVue from '@/components/PostList.vue'
-import HeadMenu from './components/Head-menu.vue'
-import ChangeSchedule from './components/Change-Schedule.vue'
+
+
+import HeadMenu from './components/head-menu.vue'
+import ChangeSchedule from './components/change-schedule.vue'
 import axios from 'axios'
 import AuthorizationPage from '@/pages/authorization-page.vue'
 
@@ -19,7 +19,6 @@ import AuthorizationPage from '@/pages/authorization-page.vue'
 
 export default {
     components: {
-        PostFormVue, PostListVue,
         HeadMenu,
         ChangeSchedule,
         AuthorizationPage,
