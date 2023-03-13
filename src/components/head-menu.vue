@@ -4,11 +4,11 @@
     <div class="head-menu">
         <div id="logo">Schedule</div>
         <ul class="menu">
-                <li><a href="#">Main</a></li>
-                <li><a href="#">Groups</a></li>
-                <li><a href="#">Teachers</a></li>
-                <li><a href="#">Classrooms</a></li>
-            <div v-if = "email.length > 2">
+                <li><a href="/">Main</a></li>
+                <li><a href="/groups">Groups</a></li>
+                <li><a href="/teacher">Teachers</a></li>
+                <li><a href="/classroom">Classrooms</a></li>
+            <div v-if = "email != null && email.length > 2">
 
             <li style="float:right"><a href="#" @click="handleClick">Sign out</a></li>
             <li style="float:right"><div id="email">{{email}}</div></li>

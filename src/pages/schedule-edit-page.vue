@@ -58,7 +58,7 @@ export default {
   name: "schedule-page.vue",
   components: {DialogSubject, SubjectEdit},
   mounted() {
-    fetch('http://d.wolf.16.fvds.ru/api/schedule/group/e9ac4335-5571-4c6e-9c27-e1c30a58d18f?weekStart=' + localStorage.getItem('start_week')+'&weekEnd=' + localStorage.getItem('end_week'))
+      fetch('http://d.wolf.16.fvds.ru/api/schedule/group/' + localStorage.getItem('group_number') +'?weekStart=' + localStorage.getItem('start_week')+'&weekEnd=' + localStorage.getItem('end_week'))
         .then(response => response.json())
         .then(data => {
           console.log(data);
