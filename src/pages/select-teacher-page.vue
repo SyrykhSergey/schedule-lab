@@ -6,9 +6,19 @@
 
 <script>
 import SelectTeacherForm from "@/components/select-teacher-form.vue";
+import {mapActions} from "vuex";
 
 export default {
-    components: {SelectTeacherForm}
+    components: {SelectTeacherForm},
+    beforeMount() { //исполняет перед отрисовкой
+        this.fetchGroups()
+    },
+    methods: {
+        ...mapActions({
+            fetchGroups: 'fetchTeachers'
+        }),
+
+    }
 
 }
 </script>

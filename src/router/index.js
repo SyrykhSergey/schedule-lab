@@ -5,6 +5,8 @@ import SelectClassroomPage from "@/pages/select-classroom-page.vue";
 import SelectTeacherPage from "@/pages/select-teacher-page.vue";
 import usersPage from "@/pages/users-page.vue";
 import scheduleEditPage from "@/pages/schedule-edit-page";
+import profilePage from "@/pages/profile-page.vue";
+
 
 const routes = [
   {
@@ -30,6 +32,10 @@ const routes = [
   {
     path: '/edit',
     component: scheduleEditPage
+  }
+  {
+    path: '/profile',
+    component: profilePage
   }
 ]
 

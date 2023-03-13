@@ -3,10 +3,11 @@
         <div class="main-text">
             <h2>Group's schedule</h2>
             <h4>Group:</h4>
+            <h5 id="error" class="no_err">Неверный номер группы</h5>
             <v-autocomplete
                 @update:modelValue="updateValue"
                 label="Group"
-                :items="['972101', '972102', '972001', '972002', '972201', '972202']"
+                :items= "this.getGroupNumberList"
             ></v-autocomplete> <!-- https://vuetifyjs.com/en/components/autocompletes/#state-selector  а строчкой выше
                                      а на 8-й строке нужно получение с сервера-->
         </div>
@@ -20,20 +21,38 @@
 <script>
 
 import ConfirmButton from "@/components/UI/confirm-button.vue";
+import {mapGetters} from "vuex";
 
 export default {
     components: {ConfirmButton},
     data(){
         return{
-            group: '',
+            groups: this.getGroupNumberList,
+            group: ''
         }
     },
+    computed: mapGetters(['getGroupNumberList']),
     methods:{
         give_request() {
+            let valid = false;
             if(this.group !== ''){// Переписать на отправку запроса к серверу
-                console.log("give request")
+                for(let i = 0; i < this.getGroupNumberList.length; i++){
+                    if(this.group === this.getGroupNumberList[i]){
+                        valid = true;
+                        localStorage.group_number = this.group
+                        console.log("give request")
+                        window.location.href = '/';//сменить на нужную ссылку
+                    }
+                }
+                if(!valid){
+                    console.log("ne give request")
+                    document.getElementById('error').style = 'display: flex'
+                }
+
+
             } else {
                 console.log("ne give request")
+                document.getElementById('error').style = 'display: flex'
             }
         },
         updateValue(data) {
@@ -47,8 +66,11 @@ export default {
 .main{
     background: white;
     width: 50vw;
-    height: 35vh;
+    height: max-content;
     margin-left: 25vw;
+    margin-top: 25px;
+    padding-bottom: 25px;
+    border-radius: 5px;
 }
 .main-text{
     padding: 30px 0 0 50px;
@@ -67,6 +89,11 @@ h4{
     display: flex;
     justify-content: flex-end;
     margin-right: 50px;
+}
+.no_err{
+    display: none;
+    color: #d20200;
+    padding-bottom: 2px;
 }
 
 </style>
