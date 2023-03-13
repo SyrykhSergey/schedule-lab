@@ -24,7 +24,7 @@ export default {
 .main{
     background: white;
     width: 90vw;
-    height: 80vh;
+    height: 85vh;
     margin-left: 5vw;
     margin-top: 25px;
     border-radius: 5px;

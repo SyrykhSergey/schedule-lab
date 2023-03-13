@@ -3,14 +3,24 @@
         <div class="second-main">
             <h3>Users</h3>
             <button><h5>+ add new user</h5></button>
-            <input>
+            <v-text-field
+                v-model="name"
+                label="Search user's name"
+                required
+            ></v-text-field>
+            <h5>Search result:</h5>
+
         </div>
     </div>
 </template>
 
 <script>
 export default {
-
+    data(){
+        return{
+            name: '',
+        }
+    }
 }
 </script>
 
@@ -22,7 +32,7 @@ export default {
 .second-main{
     margin: 44px 100px auto 70px;
 }
-h3{
+h3, h5{
     color: #24629B;
 }
 button{
@@ -31,7 +41,7 @@ button{
     background: #F4FBF8;
     margin: 10px 0 10px 0;
 }
-h5{
+button h5{
     color: #56C6A4;
     padding: 1px 15px 1px 15px;
 }
