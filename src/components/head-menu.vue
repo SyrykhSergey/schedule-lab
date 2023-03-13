@@ -4,27 +4,27 @@
     <div class="head-menu">
         <div id="logo">Schedule</div>
         <ul class="menu">
-                <li><a href="/">Main</a></li>
-                <li><a href="/groups">Groups</a></li>
-                <li><a href="/teacher">Teachers</a></li>
-                <li><a href="/classroom">Classrooms</a></li>
-            <div v-if = "rank == 'Student'">
+                <li><a href="#">Main</a></li>
+                <li><a href="#">Groups</a></li>
+                <li><a href="#">Teachers</a></li>
+                <li><a href="#">Classrooms</a></li>
+            <div v-if = "email > 1">
             <li class="dropdown">
                 <a href="javascript:void(0)" class="dropbtn">Control</a>
                 <div class="dropdown-content">
-                <a href="/users">Users</a>
-                <a href="/groups">Groups</a>
-                <a href="/classroom">Classrooms</a>
+                <a href="#">Users</a>
+                <a href="#">Groups</a>
+                <a href="#">Classrooms</a>
                 <a href="#">Lessons</a>
                 </div>
             </li>
-            <li style="float:right"><a href="#" v-on:click="AutoFalse" @click="AutoFalse">Sign out</a></li>
+            <li style="float:right"><a href="#" @click="handleClick">Sign out</a></li>
             <li style="float:right"><div id="email">{{email}}</div></li>
-            <li style="float:right"><div id="scheduler">Scheduler</div></li>
           </div>
           <div v-else>
-            <li style="float:right"><a href="#" v-on:click="AutoTrue" @click="AutoTrue"> Sign in</a></li>
-
+            <li style="float:right"><router-link to="/authorization">Sign in</router-link></li>
+            <li style="float:right"><router-link to="/registration">Registration</router-link></li>
+            <!-- <li style="float:right"><button @click="$router.push('/profile')">Sign in</button></li> -->
           </div>
         </ul>
         
@@ -36,30 +36,25 @@
   <script>
   export default {
 
+     props: ['labeltext'],
+
     data() {
         return {
-              //Для примера/тестов, заменить на логику
               rank: '',
-              email: 'alexbond@mail.ru'
-              
+              email:  localStorage.getItem('newemail'),
 
         }
     },
 
 
-
     methods: {
-      //Для примера/тестов, заменить на логику
-      AutoTrue(){
-          this.rank = 'Student'  
-          this.$emit('rank', 'Student')
-          console.log(this.rank);
-        },
-        AutoFalse(){
-          this.rank = 'Homeless' 
-          this.$emit('rank', 'Homeless')
-          },
+      handleClick(){
+        localStorage.removeItem('token');
+        localStorage.setItem('newemail', ' ');
+        this.$router.push('/authorization')
+        //console.log('Уничтожено')
 
+      }
     }
   
   }

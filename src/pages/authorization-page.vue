@@ -1,32 +1,69 @@
 <template>
-  <nav-bar></nav-bar>
+  <form @submit.prevent="handleSubmit">
   <div class="main-container">
-    <my-dialog v-model:show="dialogVisisble"> Invalid login or password </my-dialog>
+    <my-dialog v-if = "dialogVisisble == True"> Invalid login or password </my-dialog>
     <div class="card" v-if="visible">
       <div class="title-form">Authorization</div>
-      <input-form ref="input1" type="text" label="Login:" placeholder="example" inputId="username"/>
-      <input-form ref="input2" type="password" label="Password:" placeholder="password123" inputId="email"/>
-      <confirm-button @click="Authorize">Enter</confirm-button>
+      <input-form ref="input1" 
+      type="email" 
+      label="Login:" 
+      placeholder="example" 
+      inputId="username"
+      v-model="email"
+      @input="email = $event.target.value"
+      />
+      <input-form ref="input2" 
+      type="password" 
+      label="Password:" 
+      placeholder="password123" 
+      inputId="email"
+      v-model="password"
+      @input="password = $event.target.value"
+      />
+      <confirm-button>Enter</confirm-button>
     </div>
   </div>
+  </form>
 </template>
 
 <script>
-
+import axios from 'axios'
 
 export default {
+  name: 'Authorization',
   data() {
     return {
       dialogVisisble: false,
-      visible: true
+      visible: true,
+      email: "",
+      password: ""
     }
   },
   methods: {
-    Authorize() {
+      async handleSubmit(){
+        console.log(this.email)
+        const response = await axios.post('http://d.wolf.16.fvds.ru/api/account/login', {
+          email: this.email,
+          password: this.password,
+        })
 
+          
+        console.log(response.data);
+        localStorage.setItem('token', response.data.token);
+        localStorage.setItem('newemail', this.email);
+        console.log(this.email)
+        //this.$emit('changeemail', this.email)
+        this.$router.push('/')
+ 
+
+      },
+    created() { //Куда топаем при успешной авторизации
+    if (this.loggedIn) {
+      this.$router.push('/profile');
     }
+  },
   }
-}
+};
 </script>
 
 <style scoped>
