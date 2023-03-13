@@ -1,7 +1,7 @@
 <template>
   <div class="input-form">
     <label :for="inputId">{{ label }}</label>
-    <input :id="inputId" :type="type" :placeholder="placeholder" v-model="inputValue" :style="{ width: width }">
+    <input :value="modelValue" @input="updateInput" :id="inputId" :type="type" :placeholder="placeholder" :style="{ width: width }">
   </div>
 </template>
 
@@ -28,11 +28,12 @@ export default {
     width: {
       type: String,
       default: "575px"
-    }
+    },
+    modelValue: [String]
   },
-  data() {
-    return {
-      inputValue: ''
+  methods: {
+    updateInput(event) {
+      this.$emit('update:modelValue', event.target.value);
     }
   }
 };
