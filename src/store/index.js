@@ -23,6 +23,9 @@ export default createStore({
     },
     getClassroomsNumber(state){
       return state.classrooms_number_list
+    },
+    getGroupList(state){
+      return state.group_list
     }
   },
 

@@ -32,7 +32,7 @@ const routes = [
   {
     path: '/edit',
     component: scheduleEditPage
-  }
+  },
   {
     path: '/profile',
     component: profilePage

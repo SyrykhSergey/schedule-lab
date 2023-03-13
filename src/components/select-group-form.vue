@@ -27,11 +27,12 @@ export default {
     components: {ConfirmButton},
     data(){
         return{
+            all_group_list: this.getGroupList,
             groups: this.getGroupNumberList,
             group: ''
         }
     },
-    computed: mapGetters(['getGroupNumberList']),
+    computed: mapGetters(['getGroupNumberList', 'getGroupList']),
     methods:{
         give_request() {
             let valid = false;
@@ -39,9 +40,9 @@ export default {
                 for(let i = 0; i < this.getGroupNumberList.length; i++){
                     if(this.group === this.getGroupNumberList[i]){
                         valid = true;
-                        localStorage.group_number = this.group
+                        localStorage.group_number = this.getGroupList.groups[i].group_id
                         console.log("give request")
-                        window.location.href = '/';//сменить на нужную ссылку
+                        window.location.href = '/edit';//сменить на нужную ссылку
                     }
                 }
                 if(!valid){
