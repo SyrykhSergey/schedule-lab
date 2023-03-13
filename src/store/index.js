@@ -66,6 +66,25 @@ export default createStore({
 
 
   actions: {
+    async sendProfileEdit(ctx, data){
+      //console.log(data[0], data[1], data[2]);//data[0] - FIO, data[1] - email, data[2] - password
+      let url = 'http://d.wolf.16.fvds.ru/api/account/profile'
+      let data_send = {
+        "userName": data[0],
+        "group": 0,
+        "email": data[1],
+        "password": data[2]
+      }
+      axios.put(url, data_send)
+          .then(response => {
+            //console.log("GOood")
+
+
+          })
+          .catch(e => {
+            console.log(e)
+          })
+    },
     async fetchGroups(ctx){
       let url = 'http://d.wolf.16.fvds.ru/api/groups'
       axios.get(url)

@@ -11,17 +11,17 @@
             <v-text-field
                 v-model="email"
                 :rules="this.rules"
-                label="First name"
+                label="email"
                 required
             ></v-text-field>
             <v-text-field
                 v-model="password"
                 :rules="this.rules"
-                label="First name"
+                label="password"
                 required
             ></v-text-field>
             <div class="button">
-                <confirm-button @confirm="">Confirm</confirm-button>
+                <confirm-button @confirm="submit">Confirm</confirm-button>
             </div>
 
         </div>
@@ -30,21 +30,29 @@
 
 <script>
 import ConfirmButton from "@/components/UI/confirm-button.vue";
+import {mapActions} from "vuex";
 
 export default {
     components: {ConfirmButton},
     data(){
         return{
             name: '',
-            email: '',
-            password: '',
+            email: '',//изначальные данные должен брать из локал стора
+            password: '',//Реактивность поддерживается
+
             rules: [
                 value => {
-                    if (value.length > 6) return true
+                    if (value.length > 0) return true
 
-                    return 'You must enter more then 6 symbols'
+                    return 'Too short'
                 },
             ],
+        }
+    },
+    methods:{
+        ...mapActions(['sendProfileEdit']),
+        submit(){
+            this.sendProfileEdit([this.name, this.email, this.password]);
         }
     }
 }
